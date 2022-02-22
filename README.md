@@ -12,7 +12,7 @@ Please check out the [REQUIREMENTS](./REQUIREMENTS.md) file for the full test de
 
 ## Requirements
 
-This project on [devcontainers]{https://code.visualstudio.com/docs/remote/containers} which allows replication of development environments, the following are requirements for running in Windows 10 environment.
+This project on [devcontainers](https://code.visualstudio.com/docs/remote/containers) which allows replication of development environments, the following are requirements for running in Windows 10 environment.
 
 * Install [Docker/Docker Desktop ](https://www.docker.com/products/docker-desktop)
 * Install [VSCode](https://code.visualstudio.com/)
