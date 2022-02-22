@@ -1,3 +1,6 @@
+# NOTE:
+This is currently in the works and is an incomplete solution, only Task-1 of 2 has been committed. Check the branches for progress!
+
 # Cartoon-PHP-Test
 This is a test application for the Cartoon Cloud developer assesment test.
 Please check out the [REQUIREMENTS](./REQUIREMENTS.md) file for the full test details.
