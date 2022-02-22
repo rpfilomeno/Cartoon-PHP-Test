@@ -49,4 +49,15 @@ To check for authentication and connection
 ```curl -u demo:pwd1234 -i -H 'Accept:application/json' http://localhost:8000/api/check```
 
 To check output of test code
+
 ```curl -u demo:pwd1234 -i -H 'Accept:application/json' http://localhost:8000/api/test```
+
+
+## Structure
+
+This project is based on Laravel Framework for PHP and developed using VSCode on Windows 10 environment. You may run this on other OS by replacing as long as there is support for containers / alternative to Docker.
+
+The project is broken into to folders:
+
+* The ```./packages/cartoon``` folder contains the required custom classes by the assessment. This is packaged as a local library using composer.
+* The ```./test-app``` folder contains the implemntation of the custom class based on Laravel.
