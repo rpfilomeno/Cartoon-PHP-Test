@@ -20,4 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/check', [TestController::class,'check'])->middleware('auth.basic.once');
-Route::post('/test', [TestController::class,'check'])->middleware('auth.basic.once');
+Route::post('/test', [TestController::class,'test'])->middleware('auth.basic.once');
