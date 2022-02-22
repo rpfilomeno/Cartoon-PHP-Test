@@ -9,7 +9,7 @@ Please check out the [REQUIREMENTS](./REQUIREMENTS.md) file for the full test de
 * Install [Docker/Docker Desktop ](https://www.docker.com/products/docker-desktop)
 * Install [VSCode](https://code.visualstudio.com/)
 * Install the [Remote Container Plugin](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-* Re-open this code in Remote Container or press ``CTRL+P`` then select ``Remote Containers: Open Folder in Container``
+* Re-open this code in Remote Container or press ``CTRL+SHIFT+P`` then search and select ``Remote Containers: Open Folder in Container``
 
 ## Running
 1. Open VSCode terminal window (CTRL+SHIFT+`) 
