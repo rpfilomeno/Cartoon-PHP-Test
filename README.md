@@ -19,7 +19,7 @@ This project on [devcontainers](https://code.visualstudio.com/docs/remote/contai
 * Install the [Remote Container Plugin](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 * Re-open this code in Remote Container or press ``CTRL+SHIFT+P`` then search and select ``Remote Containers: Open Folder in Container``
 
-Note: If you are using WLS2 see https://docs.docker.com/desktop/windows/wsl/
+Note: If you are using WSL2 see https://docs.docker.com/desktop/windows/wsl/
 
 
 ## Running
