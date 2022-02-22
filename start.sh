@@ -6,8 +6,11 @@ composer install
 composer dump-autoload
 
 
-echo "==> Running unit tests for local/bear-claw"
+echo "==> Running code analysis for local/bear-claw"
 ./vendor/bin/phpstan analyse -l 5 src tests
+
+echo "==> Running unit tests for local/bear-claw"
+./vendor/bin/phpunit tests
 
 echo "==> Starting intallation of Laravel test-app"
 cd /workspace/test-app
