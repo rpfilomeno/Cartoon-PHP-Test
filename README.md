@@ -30,6 +30,8 @@ Note: If you are using WSL2 see [documentatio](https://docs.docker.com/desktop/w
 
 ## Running
 
+![Demonstration](cartoon-test.gif)
+
 1. Open VSCode terminal window (CTRL+SHIFT+`)
 2. Run bash script as ``sh start.sh``
 3. Open the browser when prompted
