@@ -2,7 +2,7 @@
 namespace BearClaw\Warehousing;
 
 class Utility {
-    static function translateStringOutput($string) : array {
+    static function translateStringOutput( string $string ) : array {
         $results = explode("\n",$string);
         $transform = null;
         foreach($results as $result) {
@@ -11,5 +11,22 @@ class Utility {
             } 
         }
         return $transform;
+    }
+
+    static function calculateTotal( PurchaseOrderProductClass $purchaseOrderProducts, ProductClass $product) : float {
+        $total = 0;
+        switch($product->getProductType()) {
+            case 1:
+                $total += $purchaseOrderProducts->getUnitQuantityInitial() * $product->getWeight();
+                break;
+            case 2:
+                $total += $purchaseOrderProducts->getUnitQuantityInitial() * $product->getVolume();
+                break;
+            case 3:
+                $total += $purchaseOrderProducts->getUnitQuantityInitial() * $product->getWeight();
+                break;
+        }
+
+        return $total;
     }
 }

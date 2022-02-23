@@ -3,13 +3,35 @@ use PHPUnit\Framework\TestCase;
 
 final class UtilityTest extends TestCase
 {
-    public function testCanTranslateStringOutput() : void {
-        $input = 'Product Type 1 has total of 41.5\nProduct Type 2 has total of 13.8\nProduct Type 3 has total of 25.0\n';
-        $output = \BearClaw\Warehousing\Utility::translateStringOutput($input);
+    private $order;
+    private $sample;
 
+    const EXPECTED_CAN_TRANSLATE_TOTAL = 25.0;
+    const EXPECTED_CAN_CALCULATE_TOTAL = 12.0;
+    
+    
+    protected function setUp(): void
+    {
+        $sampleTransaction = json_decode(file_get_contents(dirname(__FILE__)."/sample.json"),true);
+        $this->order = new \BearClaw\Warehousing\PurchaseOrderProductClass($sampleTransaction['data']['PurchaseOrderProduct'][0]);
+        $this->sample = file_get_contents(dirname(__FILE__)."/sample.txt");
+        
+
+    }
+
+    public function testCanTranslateStringOutput() : void {
+        $output = \BearClaw\Warehousing\Utility::translateStringOutput($this->sample);
+        
         $this->assertIsArray($output);
         $this->assertIsFloat($output[0]['total']);
-        $this->assertEquals($output[0]['total'],25.0);
+        $this->assertEquals($output[0]['total'], $this::EXPECTED_CAN_TRANSLATE_TOTAL);
+    }
+
+    public function testCanCalculateTotal() : void {
+        $product = $this->order->getProduct();
+        $testTtotal = \BearClaw\Warehousing\Utility::calculateTotal( $this->order, $product ); 
+
+        $this->assertEquals($testTtotal, $this::EXPECTED_CAN_CALCULATE_TOTAL);
     }
 
 }
