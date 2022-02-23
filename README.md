@@ -61,4 +61,4 @@ To check output of test code and pass data:
 
 ``curl -u demo:pwd1234 -i -H 'Accept:application/json' -d '{"purchase_order_ids":[2344, 2345, 2346]}' -X POST http://localhost:8000/api/test``
 
-Note: I made deviation on the API url to keep Laravel convention to serve api routes under ``/api`` prefix, else it can easily be moved to web.routes.
+Note: I made deviation on the API url to keep Laravel convention to serve api routes under ``/api`` prefix, else it can easily be moved to web routes.
