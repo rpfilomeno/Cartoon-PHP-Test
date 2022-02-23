@@ -21,10 +21,10 @@ The project is broken into to folders:
 
 This project on [devcontainers](https://code.visualstudio.com/docs/remote/containers) which allows replication of development environments, the following are requirements for running in Windows 10 environment.
 
-* Install [Docker/Docker Desktop](https://www.docker.com/products/docker-desktop)
-* Install [VSCode](https://code.visualstudio.com/)
-* Install the [Remote Container Plugin](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-* Re-open this code in Remote Container or press ``CTRL+SHIFT+P`` then search and select ``Remote Containers: Open Folder in Container``
+* Install [Docker/Docker Desktop](https://www.docker.com/products/docker-desktop).
+* Install [VSCode](https://code.visualstudio.com/).
+* Install the [Remote Container Plugin](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
+* Re-open this code in Remote Container or press ``CTRL+SHIFT+P`` then search and select ``Remote Containers: Open Folder in Container``.
 
 Note: If you are using WSL2 see [documentatio](https://docs.docker.com/desktop/windows/wsl/)
 
@@ -32,20 +32,21 @@ Note: If you are using WSL2 see [documentatio](https://docs.docker.com/desktop/w
 
 ![Demonstration](cartoon-test.gif)
 
-1. Open VSCode terminal window (CTRL+SHIFT+`)
-2. Run bash script as ``sh start.sh``
-3. Open the browser when prompted
-4. Press ``CTRL + C`` to stop
+1. Open project in VSCode.
+2. Re-open in devcontainer if prompted.
+3. Open a new terminal window (CTRL+SHIFT+`).
+4. Run bash script as ``sh start.sh`` to start the developement server, you can press ``CTRL + C`` to stop.
+5. Open a another terminal window (CTRL+SHIFT+`) and use the *curl* commands under *Testing* section.
 
 ## Manual Start using laravel artisan
 
-1. Open VSCode terminal window (CTRL+SHIFT+`)
-2. cd ./test-app
-3. composer update
-4. php artisan db:create
-5. php artisan migrate
-6. php artisan db:seed --class=UserSeeder
-7. php artisan serve
+1. Open VSCode terminal window (CTRL+SHIFT+`).
+2. Change to project directory: ``cd ./test-app``.
+3. Install dependencies: ``composer install``.
+4. Create the database: ``php artisan db:create``.
+5. Initialize the Db tables: ``php artisan migrate``.
+6. Insert test data: ``php artisan db:seed --class=UserSeeder``
+7. Run the developement server: ``php artisan serve``
 
 ## Testing
 
