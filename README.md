@@ -15,7 +15,7 @@ This project is based on [Laravel Framework](https://laravel.com/) for PHP and d
 The project is broken into to folders:
 
 * The ``./packages/cartoon`` folder contains the required custom classes by the assessment. This is packaged as a local library using composer.
-* The ``./test-app`` folder contains the implemntation of the custom class based on Laravel.
+* The ``./test-app`` folder contains the implementation of the custom class based on Laravel.
 
 ## Requirements
 
