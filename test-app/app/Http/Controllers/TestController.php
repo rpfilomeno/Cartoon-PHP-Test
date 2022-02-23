@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use BearClaw\Warehousing\TotalsCalculator;
+use Illuminate\Http\Request;
 
 class TestController extends Controller
 {
@@ -13,18 +14,24 @@ class TestController extends Controller
     }
 
 
-    public function test() {
+    public function test(Request $request) {
+        
+        $body = json_decode($request->getContent(),true);
+        
+        if(!$body['purchase_order_ids'] || !is_array($body['purchase_order_ids'])) {
+            return response()->json(['message'=>'No purchase_order_ids found'],400);
+        }
+        
+        //we want to trap the echo() from TotalsCalculator because were not allowed to modify that in rules of exam.
         $results = '';
-
-        ob_start(); //we want to trap the echo() from TotalsCalculator because were not allowed to modify that in rules of exam.
+        ob_start(); 
         $newtotals = new TotalsCalculator();
-        $newtotals->generateReport([2344,2345,2346]);
+        $newtotals->generateReport(array_values($body['purchase_order_ids']));
         $results = ob_get_contents();
         ob_end_clean();
 
 
         //quick transformation
-        //TODO: move this to a static class method if theres time left
         $transform = \BearClaw\Warehousing\Utility::translateStringOutput($results);
 
         return response()->json(['result'=>$transform]);
