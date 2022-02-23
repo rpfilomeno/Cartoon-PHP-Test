@@ -6,23 +6,14 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Pool;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
+use BearClaw\Warehousing\Utility;
 
 
 class PurchaseOrderService {
 
-    
 
     public function calculateTotals(array $ids) {
-
-        $total1 = 0;
-        $total2 = 0;
-        $total3 = 0;
         $results = array();
-
-        
-        
-
-        
         $client = new Client();
         
         $requests = function ($ids) {
@@ -58,10 +49,6 @@ class PurchaseOrderService {
 
         // Force the pool of requests to complete.
         $promise->wait();
-
-
-        
-
         
 
         //translate all responses
@@ -77,34 +64,19 @@ class PurchaseOrderService {
         //translate to required format
         //TODO: when theres time left, probably create a new class for each product_type_id from a common interface that define method to calculate
         $i = 0;
-
         
-
+        $total = array( 0, 0, 0, 0 );
         while($purchaseOrderProducts[$i]) { //TODO: we should implement Iterator, Countable if we have time, for now we know the keys and increasing.
             $order = $purchaseOrderProducts[$i];
             $product = $order->getProduct();
-            switch($product->getProductType()) {
-                case 1:
-                    $total1 += $order->getUnitQuantityInitial() * $product->getWeight();
-                    break;
-                case 2:
-                    $total2 += $order->getUnitQuantityInitial() * $product->getVolume();
-                    break;
-                case 3:
-                    $total3 += $order->getUnitQuantityInitial() * $product->getWeight();
-                    break;
-            }                    
+            $total[$product->getProductType()] += Utility::calculateTotal( $order, $product ); 
             $i++;
         }
 
-        
-        $records = null;
         //we have to conform to expected returns of TotalsCalculator
-        $records[] = array("product_type_id" => 1, "total" => sprintf("%.1f",$total1) );
-        $records[] = array("product_type_id" => 2, "total" => sprintf("%.1f",$total2) );
-        $records[] = array("product_type_id" => 3, "total" => sprintf("%.1f",$total3) );
-
-       
+        for( $records = null, $i=1 ; $i<=3; $i++) {
+            $records[] = array("product_type_id" => $i, "total" => sprintf("%.1f",$total[$i]) );
+        }
         return $records;
     }
 }
