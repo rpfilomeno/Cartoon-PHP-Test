@@ -34,13 +34,13 @@ Note: If you are using WSL2 see [documentation](https://docs.docker.com/desktop/
 
 1. Open project in VSCode.
 2. Re-open in devcontainer if prompted.
-3. Open a new terminal window (CTRL+SHIFT+`).
+3. Open a new terminal window `` CTRL+SHIFT+` ``.
 4. Run bash script as ``sh start.sh`` to start the developement server, you can press ``CTRL + C`` to stop.
-5. Open a another terminal window (CTRL+SHIFT+`) and use the *curl* commands under *Testing* section.
+5. Open a another terminal window `` CTRL+SHIFT+` `` and use the *curl* commands under *Testing* section.
 
 ## Manual Start using laravel artisan
 
-1. Open VSCode terminal window (CTRL+SHIFT+`).
+1. Open VSCode terminal window `` CTRL+SHIFT+` ``.
 2. Change to project directory: ``cd ./test-app``.
 3. Install dependencies: ``composer install``.
 4. Create the database: ``php artisan db:create``.
