@@ -1,5 +1,7 @@
 # Cartoon-PHP-Test
 
+[![Join the chat at https://gitter.im/rpfilomeno/Cartoon-PHP-Test](https://badges.gitter.im/rpfilomeno/Cartoon-PHP-Test.svg)](https://gitter.im/rpfilomeno/Cartoon-PHP-Test?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This is a test application for the Cartoon Cloud developer assesment test.
 Please check out the [REQUIREMENTS](./REQUIREMENTS.md) file for the full test details.
 
